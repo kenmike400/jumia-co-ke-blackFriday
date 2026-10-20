@@ -1,4 +1,11 @@
-import products from "../products.json";
+import p1 from "../products-1.json";
+import p2 from "../products-2.json";
+import p3 from "../products-3.json";
+import p4 from "../products-4.json";
+import p5 from "../products-5.json";
+import p6 from "../products-6.json";
+import p7 from "../products-7.json";
+import p8 from "../products-8.json";
 
 type Product = {
   sku: string;
@@ -17,7 +24,7 @@ type Product = {
   badge?: string;
 };
 
-const list = products as Product[];
+const list = [...(p1 as Product[]), ...(p2 as Product[]), ...(p3 as Product[]), ...(p4 as Product[]), ...(p5 as Product[]), ...(p6 as Product[]), ...(p7 as Product[]), ...(p8 as Product[])];
 
 function formatPrice(p: Product) {
   if (p.priceLabel) return p.priceLabel;
@@ -94,14 +101,30 @@ export default function BlackFridayPage() {
               <strong>{list.length}+</strong>
               <span>Hot deals</span>
             </div>
+            <div className="pill">
+              <strong>M-Pesa</strong>
+              <span>Pay easy</span>
+            </div>
           </div>
         </div>
       </section>
 
-      <section id="deals" className="bf-section">
-        <div className="bf-section-head">
-          <h2>Flash sale deals</h2>
-          <p>Black Friday prices · Official store · Express shipping</p>
+      <div className="bf-strip">
+        <div className="bf-strip-inner">
+          <div>
+            <strong>Black Friday deal</strong>
+            <span> · Official store picks · Express shipping available</span>
+          </div>
+          <span>Limited stock · Prices while stocks last</span>
+        </div>
+      </div>
+
+      <section className="section" id="deals">
+        <div className="section-head">
+          <h2>
+            🔥 Flash sales — <span>Black Friday</span>
+          </h2>
+          <a href="#more">See all →</a>
         </div>
         <div className="prd-grid">
           {top.map((p) => (
@@ -110,10 +133,12 @@ export default function BlackFridayPage() {
         </div>
       </section>
 
-      <section className="bf-section bf-section-alt">
-        <div className="bf-section-head">
-          <h2>More Black Friday picks</h2>
-          <p>Health &amp; beauty · Nivea · Electronics · Fashion</p>
+      <section className="section" id="more">
+        <div className="section-head">
+          <h2>
+            More Black Friday <span>deals</span>
+          </h2>
+          <a href="#deals">Back to top →</a>
         </div>
         <div className="prd-grid">
           {more.map((p) => (
@@ -121,6 +146,23 @@ export default function BlackFridayPage() {
           ))}
         </div>
       </section>
+
+      <div className="bf-strip">
+        <div className="bf-strip-inner">
+          <div>
+            <strong>Shop all Black Friday</strong>
+            <span> · Phones · TVs · Appliances · Fashion · Beauty · Nivea</span>
+          </div>
+          <a
+            className="bf-cta"
+            href="https://www.jumia.co.ke/mlp-black-friday/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Open Jumia BF
+          </a>
+        </div>
+      </div>
     </>
   );
 }
