@@ -6,6 +6,10 @@ import p5 from "../products-5.json";
 import p6 from "../products-6.json";
 import p7 from "../products-7.json";
 import p8 from "../products-8.json";
+import p9 from "../products-9.json";
+import p10 from "../products-10.json";
+import p11 from "../products-11.json";
+import p12 from "../products-12.json";
 
 type Product = {
   sku: string;
@@ -19,12 +23,9 @@ type Product = {
   imageBlack: string;
   url: string;
   rating?: number | null;
-  ratingsCount?: number | null;
-  isExpress?: boolean;
-  badge?: string;
 };
 
-const list = [...(p1 as Product[]), ...(p2 as Product[]), ...(p3 as Product[]), ...(p4 as Product[]), ...(p5 as Product[]), ...(p6 as Product[]), ...(p7 as Product[]), ...(p8 as Product[])];
+const list = [...(p1 as Product[]), ...(p2 as Product[]), ...(p3 as Product[]), ...(p4 as Product[]), ...(p5 as Product[]), ...(p6 as Product[]), ...(p7 as Product[]), ...(p8 as Product[]), ...(p9 as Product[]), ...(p10 as Product[]), ...(p11 as Product[]), ...(p12 as Product[])];
 
 function formatPrice(p: Product) {
   if (p.priceLabel) return p.priceLabel;
@@ -55,10 +56,8 @@ function ProductCard({ p }: { p: Product }) {
           {p.rating ? (
             <div className="prd-rating">
               ★ {p.rating}
-              {p.ratingsCount ? ` (${p.ratingsCount.toLocaleString()})` : ""}
             </div>
           ) : null}
-          {p.isExpress ? <div className="prd-ship">Express Shipping</div> : null}
         </div>
       </a>
       <div className="prd-body" style={{ paddingTop: 0 }}>
