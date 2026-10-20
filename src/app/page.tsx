@@ -38,6 +38,7 @@ function ProductCard({ p }: { p: Product }) {
         <div className="prd-img">
           <span className="prd-badge">Black Friday</span>
           {disc ? <span className="prd-disc">{disc}</span> : null}
+          {/* Black background product image */}
           <img src={p.imageBlack || p.image} alt={p.name} loading="lazy" />
         </div>
         <div className="prd-body">
@@ -82,7 +83,7 @@ export default function BlackFridayPage() {
               Black Friday <span>2026</span>
             </h1>
             <p className="lead">
-              Best deals on phones, TVs, appliances, fashion & beauty. Flash
+              Best deals on phones, TVs, appliances, fashion &amp; beauty. Flash
               sales live — pay with M-Pesa, track your order, shop express.
             </p>
             <a className="bf-cta" href="#deals">
@@ -150,7 +151,12 @@ export default function BlackFridayPage() {
             <strong>Shop all Black Friday</strong>
             <span> · Phones · TVs · Appliances · Fashion · Beauty</span>
           </div>
-          <a className="bf-cta" href="https://www.jumia.co.ke/mlp-black-friday/" target="_blank" rel="noreferrer">
+          <a
+            className="bf-cta"
+            href="https://www.jumia.co.ke/mlp-black-friday/"
+            target="_blank"
+            rel="noreferrer"
+          >
             Open Jumia BF
           </a>
         </div>
