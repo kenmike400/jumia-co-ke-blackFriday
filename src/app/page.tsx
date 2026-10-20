@@ -107,21 +107,24 @@ function ProductCard({ p }: { p: Product }) {
   );
 }
 
+const PART_COUNT = 81;
+
 export default function Home() {
   const [cat, setCat] = useState("all");
   const [all, setAll] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    const ids = Array.from({ length: PART_COUNT }, (_, i) => i + 1);
     Promise.all(
-      [1, 2, 3, 4].map((i) =>
-        fetch(`/products-part${i}.json`)
-          .then((r) => r.json())
+      ids.map((i) =>
+        fetch(`/m${i}.json`)
+          .then((r) => (r.ok ? r.json() : []))
           .catch(() => [])
       )
     )
       .then((parts) => {
-        const merged = parts.flat().filter((p: Product) => p && p.name);
+        const merged = (parts as Product[][]).flat().filter((p) => p && p.name && p.url);
         setAll(merged);
         setLoading(false);
       })
@@ -170,7 +173,7 @@ export default function Home() {
             </p>
             <div className="hero-stats">
               <span>
-                <strong>{all.length || "1000"}+</strong> products
+                <strong>{all.length || "…"}+</strong> products
               </span>
               <span>
                 <strong>Up to 70%</strong> off
@@ -217,6 +220,8 @@ export default function Home() {
         </div>
         {loading ? (
           <p style={{ padding: 24 }}>Loading products…</p>
+        ) : filtered.length === 0 ? (
+          <p style={{ padding: 24 }}>No products in this category yet.</p>
         ) : (
           <div className="grid">
             {top.map((p) => (
