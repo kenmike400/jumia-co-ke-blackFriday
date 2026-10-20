@@ -107,7 +107,8 @@ function ProductCard({ p }: { p: Product }) {
   );
 }
 
-const PART_COUNT = 81;
+const M_COUNT = 81;
+const B_COUNT = 151;
 
 export default function Home() {
   const [cat, setCat] = useState("all");
@@ -115,17 +116,31 @@ export default function Home() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const ids = Array.from({ length: PART_COUNT }, (_, i) => i + 1);
-    Promise.all(
-      ids.map((i) =>
+    const mIds = Array.from({ length: M_COUNT }, (_, i) => i + 1);
+    const bIds = Array.from({ length: B_COUNT }, (_, i) => i + 1);
+    const fetches = [
+      ...mIds.map((i) =>
         fetch(`/m${i}.json`)
           .then((r) => (r.ok ? r.json() : []))
           .catch(() => [])
-      )
-    )
+      ),
+      ...bIds.map((i) =>
+        fetch(`/b${i}.json`)
+          .then((r) => (r.ok ? r.json() : []))
+          .catch(() => [])
+      ),
+    ];
+    Promise.all(fetches)
       .then((parts) => {
         const merged = (parts as Product[][]).flat().filter((p) => p && p.name && p.url);
-        setAll(merged);
+        const seen = new Set<string>();
+        const unique = merged.filter((p) => {
+          const k = (p.sku || "") + "|" + p.name;
+          if (seen.has(k)) return false;
+          seen.add(k);
+          return true;
+        });
+        setAll(unique);
         setLoading(false);
       })
       .catch(() => setLoading(false));
