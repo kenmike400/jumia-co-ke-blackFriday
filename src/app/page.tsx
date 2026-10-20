@@ -113,10 +113,16 @@ export default function Home() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("/products.json")
-      .then((r) => r.json())
-      .then((data: Product[]) => {
-        setAll(Array.isArray(data) ? data : []);
+    Promise.all(
+      [1, 2, 3, 4].map((i) =>
+        fetch(`/products-part${i}.json`)
+          .then((r) => r.json())
+          .catch(() => [])
+      )
+    )
+      .then((parts) => {
+        const merged = parts.flat().filter((p: Product) => p && p.name);
+        setAll(merged);
         setLoading(false);
       })
       .catch(() => setLoading(false));
