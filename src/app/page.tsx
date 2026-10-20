@@ -1,4 +1,13 @@
-import products from "../products.json";
+import p1 from "../products-1.json";
+import p2 from "../products-2.json";
+import p3 from "../products-3.json";
+import p4 from "../products-4.json";
+import p5 from "../products-5.json";
+import p6 from "../products-6.json";
+import p7 from "../products-7.json";
+import p8 from "../products-8.json";
+import p9 from "../products-9.json";
+import p10 from "../products-10.json";
 
 type Product = {
   sku: string;
@@ -17,7 +26,7 @@ type Product = {
   badge?: string;
 };
 
-const list = products as Product[];
+const list = [...p1, ...p2, ...p3, ...p4, ...p5, ...p6, ...p7, ...p8, ...p9, ...p10] as Product[];
 
 function formatPrice(p: Product) {
   if (p.priceLabel) return p.priceLabel;
