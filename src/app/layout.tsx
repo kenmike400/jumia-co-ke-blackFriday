@@ -69,14 +69,12 @@ export default function RootLayout({
         <nav className="cat-strip">
           <div className="cat-strip-inner">
             <a href="/">Home</a>
-            <a href="#deals" className="active">
-              Black Friday
-            </a>
-            <a href="#deals">Phones</a>
-            <a href="#deals">TVs</a>
-            <a href="#deals">Appliances</a>
-            <a href="#deals">Fashion</a>
-            <a href="#deals">Beauty</a>
+            <a href="#deals">Black Friday</a>
+            <a href="#phones">Phones</a>
+            <a href="#tvs">TVs</a>
+            <a href="#appliances">Appliances</a>
+            <a href="#fashion">Fashion</a>
+            <a href="#beauty">Beauty</a>
             <a href="#deals">All Deals</a>
           </div>
         </nav>
