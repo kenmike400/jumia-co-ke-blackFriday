@@ -25,7 +25,40 @@ type Product = {
   rating?: number | null;
 };
 
-const list = [...(p1 as Product[]), ...(p2 as Product[]), ...(p3 as Product[]), ...(p4 as Product[]), ...(p5 as Product[]), ...(p6 as Product[]), ...(p7 as Product[]), ...(p8 as Product[]), ...(p9 as Product[]), ...(p10 as Product[]), ...(p11 as Product[]), ...(p12 as Product[])];
+const list = [
+  ...(p1 as Product[]),
+  ...(p2 as Product[]),
+  ...(p3 as Product[]),
+  ...(p4 as Product[]),
+  ...(p5 as Product[]),
+  ...(p6 as Product[]),
+  ...(p7 as Product[]),
+  ...(p8 as Product[]),
+  ...(p9 as Product[]),
+  ...(p10 as Product[]),
+  ...(p11 as Product[]),
+  ...(p12 as Product[]),
+];
+
+const BANNERS = [
+  "https://ke.jumia.is/cms/2026/BlackFriday/Teasing/V1/Generics/KE_ONS_BF26_Teasing_Generic_1026_MSB.png",
+  "https://ke.jumia.is/cms/2026/BlackFriday/Teasing/V1/Initiatives/KE_ONS_BF26_Teasing_Initiatives_1026_TB1.jpg",
+  "https://ke.jumia.is/cms/2026/BlackFriday/Teasing/V1/Initiatives/KE_ONS_BF26_Teasing_Initiatives_1026_TB2.jpg",
+  "https://ke.jumia.is/cms/2026/BlackFriday/Teasing/V1/Initiatives/KE_ONS_BF26_Teasing_Initiatives_1026_TB3.jpg",
+  "https://ke.jumia.is/cms/2026/BlackFriday/Teasing/V1/Brands/nivea-desktop.png",
+  "https://ke.jumia.is/cms/2026/BlackFriday/Teasing/V1/Brands/xiaomi-desktop.png",
+];
+
+const CATS = [
+  { name: "Phones", img: "https://ke.jumia.is/cms/_FL_2026/Smartphones.png" },
+  { name: "TVs", img: "https://ke.jumia.is/cms/_FL_2026/TVs.png" },
+  { name: "Appliances", img: "https://ke.jumia.is/cms/_FL_2026/LargeAppliances.png" },
+  { name: "Fashion", img: "https://ke.jumia.is/cms/_FL_2026/Fashion.png" },
+  { name: "Beauty", img: "https://ke.jumia.is/cms/_FL_2026/Vault/Beauty/SunCare.png" },
+  { name: "Audio", img: "https://ke.jumia.is/cms/_FL_2026/HomeAudio.png" },
+  { name: "Gaming", img: "https://ke.jumia.is/cms/_FL_2026/Gaming.png" },
+  { name: "Home", img: "https://ke.jumia.is/cms/_FL_2026/Home.png" },
+];
 
 function formatPrice(p: Product) {
   if (p.priceLabel) return p.priceLabel;
@@ -53,11 +86,7 @@ function ProductCard({ p }: { p: Product }) {
           <div className="prd-name">{p.name}</div>
           <div className="prd-price">{formatPrice(p)}</div>
           {p.oldPrice ? <div className="prd-old">{p.oldPrice}</div> : null}
-          {p.rating ? (
-            <div className="prd-rating">
-              ★ {p.rating}
-            </div>
-          ) : null}
+          {p.rating ? <div className="prd-rating">★ {p.rating}</div> : null}
         </div>
       </a>
       <div className="prd-body" style={{ paddingTop: 0 }}>
@@ -107,6 +136,23 @@ export default function BlackFridayPage() {
           </div>
         </div>
       </section>
+
+      <div className="bf-banners">
+        {BANNERS.map((src) => (
+          <a key={src} href="#deals" className="bf-banner-item">
+            <img src={src} alt="Jumia Black Friday" loading="lazy" />
+          </a>
+        ))}
+      </div>
+
+      <div className="bf-cats">
+        {CATS.map((c) => (
+          <a key={c.name} href="#deals" className="bf-cat">
+            <img src={c.img} alt={c.name} loading="lazy" />
+            <span>{c.name}</span>
+          </a>
+        ))}
+      </div>
 
       <div className="bf-strip">
         <div className="bf-strip-inner">
