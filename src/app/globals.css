@@ -20,7 +20,6 @@ img {
   display: block;
 }
 
-/* Top bar */
 .topbar {
   background: #f1f1f2;
   border-bottom: 1px solid #e5e5e5;
@@ -43,7 +42,6 @@ img {
   font-weight: 600;
 }
 
-/* Orange header */
 .header {
   background: #f68b1e;
   position: sticky;
@@ -61,7 +59,6 @@ img {
 .logo img {
   height: 32px;
   width: auto;
-  background: transparent;
 }
 .search {
   flex: 1;
@@ -84,7 +81,6 @@ img {
   padding: 0 18px;
   font-weight: 700;
   font-size: 12px;
-  letter-spacing: 0.5px;
   cursor: pointer;
 }
 .header-actions {
@@ -94,11 +90,7 @@ img {
   font-weight: 500;
   font-size: 13px;
 }
-.ha.cart {
-  font-weight: 700;
-}
 
-/* Category strip */
 .cat-strip {
   background: #fff;
   border-bottom: 1px solid #ededed;
@@ -124,7 +116,6 @@ img {
   font-weight: 600;
 }
 
-/* Black Friday hero */
 .bf-hero {
   background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #000 100%);
   color: #fff;
@@ -154,7 +145,6 @@ img {
   margin: 0 0 10px;
   font-size: 36px;
   font-weight: 800;
-  letter-spacing: -0.5px;
 }
 .bf-hero h1 span {
   color: #f68b1e;
@@ -173,9 +163,6 @@ img {
   padding: 12px 22px;
   border-radius: 4px;
   font-size: 14px;
-}
-.bf-cta:hover {
-  background: #ff9f3a;
 }
 .bf-hero-art {
   display: flex;
@@ -200,7 +187,59 @@ img {
   color: #aaa;
 }
 
-/* BF strip */
+.bf-banners {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 10px;
+  padding: 12px 16px;
+  max-width: 1200px;
+  margin: 0 auto;
+  background: #0a0a0a;
+}
+.bf-banner-item {
+  display: block;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #111;
+}
+.bf-banner-item img {
+  width: 100%;
+  height: 90px;
+  object-fit: cover;
+  display: block;
+}
+.bf-cats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+  padding: 16px;
+  max-width: 1200px;
+  margin: 0 auto;
+  background: #fff;
+}
+.bf-cat {
+  width: 88px;
+  text-align: center;
+  text-decoration: none;
+  color: #282828;
+  font-size: 12px;
+  font-weight: 600;
+}
+.bf-cat img {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto 6px;
+  border-radius: 50%;
+  background: #f5f5f5;
+  padding: 6px;
+}
+.bf-cat:hover span {
+  color: #f68b1e;
+}
+
 .bf-strip {
   background: #000;
   color: #fff;
@@ -219,12 +258,7 @@ img {
 .bf-strip strong {
   color: #f68b1e;
 }
-.bf-strip .bf-cta {
-  padding: 8px 14px;
-  font-size: 12px;
-}
 
-/* Sections */
 .section {
   max-width: 1184px;
   margin: 0 auto;
@@ -250,7 +284,6 @@ img {
   font-weight: 600;
 }
 
-/* Product grid */
 .prd-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
@@ -263,7 +296,6 @@ img {
   display: flex;
   flex-direction: column;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
-  transition: box-shadow 0.15s;
 }
 .prd:hover {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
@@ -293,7 +325,6 @@ img {
   padding: 3px 6px;
   border-radius: 2px;
   z-index: 2;
-  letter-spacing: 0.3px;
 }
 .prd-disc {
   position: absolute;
@@ -326,7 +357,6 @@ img {
 .prd-price {
   font-size: 16px;
   font-weight: 700;
-  color: #313133;
 }
 .prd-old {
   font-size: 12px;
@@ -336,11 +366,6 @@ img {
 .prd-rating {
   font-size: 12px;
   color: #f68b1e;
-}
-.prd-ship {
-  font-size: 11px;
-  color: #008000;
-  font-weight: 600;
 }
 .prd-btn {
   display: block;
@@ -353,11 +378,7 @@ img {
   border-radius: 3px;
   margin-top: 6px;
 }
-.prd-btn:hover {
-  background: #ff9f3a;
-}
 
-/* Footer */
 .footer {
   background: #313133;
   color: #c7c7cd;
@@ -381,9 +402,6 @@ img {
   display: block;
   margin-bottom: 6px;
   color: #c7c7cd;
-}
-.footer a:hover {
-  color: #f68b1e;
 }
 .mpesa {
   color: #f68b1e;
